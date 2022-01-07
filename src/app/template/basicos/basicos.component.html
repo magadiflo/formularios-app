@@ -7,8 +7,8 @@
             <div class="mb-3 row">
                 <label for="producto" class="col-sm-2 col-form-label">Producto</label>
                 <div class="col-sm-10">
-                    <input type="text" ngModel name="producto" id="producto" class="form-control" required>
-                    <span class="form-text text-danger">Debe de ser de 3 letras</span>
+                    <input type="text" ngModel name="producto" id="producto" class="form-control" required minlength="3">
+                    <span class="form-text text-danger" *ngIf="miFormulario.controls['producto']?.invalid && miFormulario.controls['producto']?.touched">Debe de ser de 3 letras</span>
                 </div>
             </div>
             <div class="mb-3 row">
@@ -32,8 +32,23 @@
 
 <div class="row">
     <div class="col">
-        <strong>Valid</strong>
-        <pre>{{ miFormulario.valid }}</pre>
+        <div>
+            <strong>Valid, </strong>
+            <small>si pasa todas las validaciones establecidas en el formulario</small>
+            <pre>{{ miFormulario.valid }}</pre>
+        </div>
+
+        <div>
+            <strong>Pristine, </strong>
+            <small>no se han cambiado ninguno de los valores con los que se presentó el formulario al usuario</small>
+            <pre>{{ miFormulario.pristine }}</pre>
+        </div>
+
+        <div>
+            <strong>Touched, </strong>
+            <small>si el usuario ha tocado el formulario</small>
+            <pre>{{ miFormulario.touched }}</pre>
+        </div>
 
         <strong>Value</strong>
         <pre>{{ miFormulario.value | json }}</pre>
