@@ -6,11 +6,13 @@
         <label for="genero" class="col-sm-2 col-form-label">Género</label>
         <div class="col-sm-10">
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="genero" id="masculino">
+                <input class="form-check-input" type="radio" value="M" [(ngModel)]="persona.genero" name="genero"
+                    id="masculino" required>
                 <label class="form-check-label" for="masculino">Masculino</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="genero" id="femenino">
+                <input class="form-check-input" type="radio" value="F" [(ngModel)]="persona.genero" name="genero"
+                    id="femenino" required>
                 <label class="form-check-label" for="femenino">Femenino</label>
             </div>
         </div>
@@ -18,8 +20,9 @@
     <div class="mb-3 row">
         <label for="genero" class="col-sm-2 col-form-label">Notificaciones</label>
         <div class="col-sm-10">
-            <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" id="notificaciones">
+            <div class="form-check form-switch mt-2">
+                <input class="form-check-input" type="checkbox" role="switch" [(ngModel)]="persona.notificationes"
+                    name="notificationes" id="notificaciones">
                 <label class="form-check-label" for="notificaciones">Quiero recibir notificaciones</label>
             </div>
         </div>
@@ -28,12 +31,24 @@
         <label class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="terminos-condiciones">
+                <input class="form-check-input" type="checkbox" value="" [(ngModel)]="terminoYCondiciones"
+                    name="terminos-condiciones" id="terminos-condiciones" required>
                 <label class="form-check-label" for="terminos-condiciones">Términos y condiciones de uso</label>
             </div>
         </div>
     </div>
     <div class="float-end">
-        <button type="submit" class="btn btn-primary mb-3">Guardar</button>
+        <button type="submit" [disabled]="miFormulario.invalid" class="btn btn-primary mb-3">Guardar</button>
     </div>
 </form>
+<strong>Valor del formulario</strong>
+<pre>{{ miFormulario.value | json }}</pre>
+
+<strong>Persona</strong>
+<pre>{{ persona | json }}</pre>
+
+<strong>Valid</strong>
+<pre>{{ miFormulario.valid }}</pre>
+
+<strong>Términos</strong>
+<pre>{{ miFormulario.controls['terminos-condiciones']?.errors | json }}</pre>
