@@ -14,14 +14,14 @@
             <div class="mb-3 row">
                 <label for="precio" class="col-sm-2 col-form-label">Precio</label>
                 <div class="col-sm-10">
-                    <input type="number" ngModel name="precio" id="precio" class="form-control" required min="0">
+                    <input type="number" ngModel name="precio" id="precio" class="form-control" required>
                     <span class="form-text text-danger" *ngIf="precioValido()">El precio debe ser cero o mayor</span>
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="existencias" class="col-sm-2 col-form-label">Existencias</label>
                 <div class="col-sm-10">
-                    <input type="number" ngModel name="existencias" id="existencias" class="form-control">
+                    <input type="number" ngModel name="existencias" id="existencias" class="form-control" required customMin [minimo]="0">
                 </div>
             </div>
             <div class="float-end">
@@ -53,5 +53,8 @@
 
         <strong>Value</strong>
         <pre>{{ miFormulario.value | json }}</pre>
+
+        <strong>CustomDirective</strong>
+        <pre>{{ miFormulario.controls['existencias']?.errors | json }}</pre>
     </div>
 </div>

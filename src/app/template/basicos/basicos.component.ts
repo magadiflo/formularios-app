@@ -25,7 +25,7 @@ export class BasicosComponent implements OnInit {
   }
 
   precioValido(): boolean {
-    return this.miFormulario?.controls['precio']?.touched && this.miFormulario?.controls['precio']?.value
+    return this.miFormulario?.controls['precio']?.touched && this.miFormulario?.controls['precio']?.value < 0;
   }
 
 }
