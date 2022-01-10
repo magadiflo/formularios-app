@@ -1,1 +1,60 @@
-<p>basicos works!</p>
+<h2>Reactivos: Básicos</h2>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <form autocomplete="off">
+            <div class="mb-3 row">
+                <label for="producto" class="col-sm-2 col-form-label">Producto</label>
+                <div class="col-sm-10">
+                    <input type="text" id="producto" class="form-control">
+                    <span class="form-text text-danger">Debe de ser de 3 letras</span>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="precio" class="col-sm-2 col-form-label">Precio</label>
+                <div class="col-sm-10">
+                    <input type="number" id="precio" class="form-control">
+                    <span class="form-text text-danger">El precio debe ser cero o mayor</span>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="existencias" class="col-sm-2 col-form-label">Existencias</label>
+                <div class="col-sm-10">
+                    <input type="number" id="existencias" class="form-control">
+                </div>
+            </div>
+            <div class="float-end">
+                <button type="submit" class="btn btn-primary mb-3">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <div>
+            <strong>Valid, </strong>
+            <small>si pasa todas las validaciones establecidas en el formulario</small>
+            <pre></pre>
+        </div>
+
+        <div>
+            <strong>Pristine, </strong>
+            <small>no se han cambiado ninguno de los valores con los que se presentó el formulario al usuario</small>
+            <pre></pre>
+        </div>
+
+        <div>
+            <strong>Touched, </strong>
+            <small>si el usuario ha tocado el formulario</small>
+            <pre></pre>
+        </div>
+
+        <strong>Value</strong>
+        <pre></pre>
+
+        <strong>CustomDirective</strong>
+        <pre></pre>
+    </div>
+</div>
