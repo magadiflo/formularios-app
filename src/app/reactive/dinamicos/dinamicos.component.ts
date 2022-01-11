@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormArray, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-dinamicos',
@@ -16,6 +16,8 @@ export class DinamicosComponent implements OnInit {
       ['Ciclismo', Validators.required],
     ], Validators.required),
   });
+
+  nuevoFavorito: FormControl = this.fb.control('', Validators.required);
   
   constructor(private fb: FormBuilder) { }
   
@@ -36,6 +38,14 @@ export class DinamicosComponent implements OnInit {
 
   campoNoEsValido(campo: string) {
     return this.miFormulario.controls[campo].errors && this.miFormulario.controls[campo].touched;
+  }
+
+  agregarFavorito(): void {
+    if(this.nuevoFavorito.invalid) return;
+    //Ambas líneas de abajo son iguales (46 y 47)
+    // this.favoritosArr.push(new FormControl(this.nuevoFavorito.value, Validators.required));
+    this.favoritosArr.push(this.fb.control(this.nuevoFavorito.value, Validators.required));
+    this.nuevoFavorito.reset();
   }
 
 }
