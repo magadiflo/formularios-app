@@ -1,16 +1,16 @@
 <h2>Reactivos: <small>Switches</small></h2>
 <hr>
 
-<form autocomplete="off">
+<form autocomplete="off" [formGroup]="miFormulario">
     <div class="mb-3 row">
         <label for="genero" class="col-sm-2 col-form-label">Género</label>
         <div class="col-sm-10">
             <div class="form-check">
-                <input class="form-check-input" type="radio" value="M" name="genero" id="masculino">
+                <input class="form-check-input" type="radio" value="M" id="masculino" formControlName="genero">
                 <label class="form-check-label" for="masculino">Masculino</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" value="F" name="genero" id="femenino">
+                <input class="form-check-input" type="radio" value="F" id="femenino" formControlName="genero">
                 <label class="form-check-label" for="femenino">Femenino</label>
             </div>
         </div>
@@ -19,7 +19,8 @@
         <label for="genero" class="col-sm-2 col-form-label">Notificaciones</label>
         <div class="col-sm-10">
             <div class="form-check form-switch mt-2">
-                <input class="form-check-input" type="checkbox" role="switch" name="notificationes" id="notificaciones">
+                <input class="form-check-input" type="checkbox" role="switch" id="notificaciones"
+                    formControlName="notificaciones">
                 <label class="form-check-label" for="notificaciones">Quiero recibir notificaciones</label>
             </div>
         </div>
@@ -28,7 +29,7 @@
         <label class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" name="terminos-condiciones"
+                <input class="form-check-input" type="checkbox" value="" formControlName="terminos-condiciones"
                     id="terminos-condiciones">
                 <label class="form-check-label" for="terminos-condiciones">Términos y condiciones de uso</label>
             </div>
@@ -38,3 +39,12 @@
         <button type="submit" class="btn btn-primary mb-3">Guardar</button>
     </div>
 </form>
+
+<strong>Valor del formulario</strong>
+<pre>{{ miFormulario.value | json }}</pre>
+
+<strong>Persona</strong>
+<pre>{{ persona | json }}</pre>
+
+<strong>Valid</strong>
+<pre>{{ miFormulario.valid }}</pre>
