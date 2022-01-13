@@ -40,7 +40,7 @@
                 </div>
             </div>
             <div class="float-end">
-                <button type="submit" class="btn btn-primary mb-3">Guardar</button>
+                <button type="submit" class="btn btn-primary mb-3" [disabled]="miFormulario.pending">Guardar</button>
             </div>
         </form>
     </div>
@@ -48,6 +48,12 @@
 
 <strong>Form Valid</strong>
 <pre>{{ miFormulario.valid }}</pre>
+
+<strong>Form Status</strong>
+<pre>{{ miFormulario.status }}</pre>
+
+<strong>Form Pending</strong>
+<pre>{{ miFormulario.pending }}</pre>
 
 <strong>Form Errors</strong>
 <pre>{{ miFormulario.errors | json }}</pre>
