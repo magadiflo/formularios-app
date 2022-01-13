@@ -16,7 +16,7 @@ export class EmailValidatorService implements AsyncValidator {
     console.log("email", email);
     return this.http.get<any[]>(`http://localhost:3000/usuarios?q=${email}`)
       .pipe(
-        delay(3000), //Para simular la demora de 3 segundos
+        //delay(3000), //Para simular la demora de 3 segundos
         map(resp => {
           return (resp.length === 0) ? null : { emailTomado: true }
         })
