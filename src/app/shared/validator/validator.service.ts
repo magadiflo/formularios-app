@@ -26,7 +26,7 @@ export class ValidatorService {
       const pass2 = formGroup.get(campo2)?.value;
       if (pass1 !== pass2) {
         formGroup.get(campo2)?.setErrors({ noIguales: true });
-        return { noIguales: true } //Hay error
+        return { noIguales: true } //ese formato sería el ValidationErrors, que significa que hay error
       }
 
       formGroup.get(campo2)?.setErrors(null);
